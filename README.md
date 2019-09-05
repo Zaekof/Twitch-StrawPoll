@@ -1,3 +1,5 @@
+![strawpoll exemple](https://i.imgur.com/L9IA8kh.gif)
+
 # Informations / Configuration
 
 ### Informations
