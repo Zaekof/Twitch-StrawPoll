@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>strawpoll</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500,700" rel="stylesheet">
+    
+    <link rel="stylesheet" media="screen" href="./css/styles.css" type="text/css">
+</head>
+<body>
+
+    <section class="section" style='display:none'>
+        <div class="container">
+            <div class="poll">
+
+                <div class="question">
+                    <h2 id="question" data-role='PollQuestion'></h2>
+                </div>
+
+                <div class="options"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/tmi.min.js"></script>
+    <script src="./js/progressbar.min.js"></script>
+    <script>
+        let _configuration = false
+        let cpt = 0
+        let interval = null
+
+        let inter = () => {
+            interval = setInterval(() => {
+                $.getJSON('./config.json', function( data ) {
+                    _configuration = data['Configuration']
+                    $('#testid').text(_configuration.audio.enable)
+                })
+            }, 60000)
+        }
+
+        let loadScript = () => {
+            switch (cpt) {
+                case 0:
+                    $.getScript('./js/playSound.js')
+                    .done(() => {
+                        cpt += 1
+                        loadScript()
+                    })
+                    break;
+                case 1:
+                    $.getScript('./js/classes/_barprogress.js')
+                    .done(() => {
+                        cpt += 1
+                        loadScript()
+                    })
+                    break;
+                case 2:
+                    $.getScript('./js/classes/_strawpoll.js')
+                    .done(() => {
+                        cpt += 1
+                        loadScript()
+                    })
+                    break;
+                case 3:
+                    $.getScript('./js/app.js')
+                    cpt = 0
+                    inter()
+                    break;
+            }
+        }
+        $.getJSON('./config.json', function( data ) {
+            _configuration = data['Configuration']
+            loadScript()
+        })
+    </script>
+</body>
+</html>

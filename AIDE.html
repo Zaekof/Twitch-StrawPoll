@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aide</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,500,700" rel="stylesheet">  
+
+  <style>
+    *, *::after {
+      box-sizing: content-box;
+      margin: 0;
+      padding: 0;
+
+      font-family: 'Montserrat', 'Tahoma';
+    }
+
+    html, body {
+      width: 100%;
+      height: auto;
+
+      background: teal;
+    }
+
+    .container {
+      width: 70%;
+
+      float: left;
+      margin: 50px 0 50px calc(50vw - 35%);
+      background: rgb(23, 116, 116);
+    }
+    .bloc {
+      text-align: center;
+      padding: 15px;
+    }
+    .title {
+      height: auto;
+
+      margin: 20px 0;
+      color: aliceblue;
+      font-size: 1.5rem;
+    }
+    article h5:first-of-type {
+      background: aliceblue;
+    }
+    article h5:not(:first-of-type) {
+      margin-top: 35px;
+      color: aliceblue;
+      text-decoration: underline;
+    }    
+    article p {
+      margin: 10px 0;
+      color: aliceblue;
+    }
+    article p a {
+      color: aliceblue;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    article::after {
+      content: ' ';
+      display: block;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="bloc">
+      <div class="title">
+        <h3>Informations / Configuration</h3>
+      </div>
+    </div>
+    <div class="bloc">
+      <article>
+        <h5>Informations</h5>
+        <p>
+          L'overlay StrawPoll a été conçu pour être intégré dans des logiciels (obs/streamlabs obs/ etc..) pour envoyer un flux en direct sur la plateforme Twitch.
+          Si vous n'utilisez pas Twitch pour streamer, l'overlay ne fonctionnera pas.</p>
+        <p>
+          Le projet est open-source et facilement modifiable/configurable.
+        </p>
+        <p>
+          Pour importer l'overlay StrawPoll dans votre logiciel de capture, exemple OBS, il vous faut importer le fichier <b>index.html</b> comme source <b>navigateur</b>.
+        </p>
+        <p>
+          Les commandes disponible : <br />
+          <b>!poll (nom du strawPoll)</b> pour créer un StrawPoll, sans les parenthèses. <br />
+          <b>!poll add (option)</b> pour ajouter une option au StrawPoll, sans les parenthèses. <br />
+          <b>!poll hide</b> pour cacher et mettre  en pause le StrawPoll. <br />
+          <b>!poll stop</b> pour arreter et supprimer le StrawPoll. <br />
+          Ensuite il suffit d'utiliser <b>!(numéro de l'option)</b> dans le chat pour voter, exemple <b>!0</b>.
+        </p>
+      </article>
+      <article>
+          <h5>Configuration</h5>
+
+          <h5>Activer ou désactiver les effets sonores</h5>
+          <p>
+            Rendez vous dans le fichier <b>config.json</b> et à la ligne <b>4</b>. <br />
+            Vous devez voir ceci <b>"enable": true</b>, ici vous pouvez activer ou désactiver les sons avec les valeurs <b>true</b> pour activer et <b>false</b> pour désactiver.
+          </p>
+
+          <h5>Volume des effets sonores</h5>
+          <p>
+            Rendez vous dans le fichier <b>config.json</b> et à la ligne <b>5</b>. <br />
+            Vous devez voir ceci <b>"volume": 0.1</b>, ici vous pouvez augmenter ou diminuer le volume du son, de 0.1 à 1, sachant que 0.1 c'est le minimum.
+          </p>
+
+          <h5>Configurer le StrawPoll sur votre chaîne Twitch</h5>
+          <p>
+            Rendez vous dans le fichier <b>config.json</b> et à la ligne <b>7</b>. <br />
+            Vous devez voir ceci <b>"channel_twitch": ""</b>, ici vous devez renseigner le nom de votre chaîne Twitch (votre pseudo) entre les guillemets après les deux-points.
+          </p>
+          <p>
+            Rendez vous dans le fichier <b>config.json</b> et à la ligne <b>8</b>. <br />
+            Vous devez voir ceci <b>"identity_username": ""</b>, ici vous devez renseigner votre pseudo Twitch ou celui de votre bot entre les guillemets après les deux-points.
+          </p>
+          <p>
+            Rendez vous dans le fichier <b>config.json</b> et à la ligne <b>9</b>. <br />
+            Vous devez voir ceci <b>"identity_password": "",</b>, ici vous devez renseigner votre Token Twitch ou celui de votre bot entre les guillemets après les deux-points;<br />
+            Pour avoir un Token, dirigez-vous <a href="https://twitchapps.com/tmi/" target="_blank">ici</a> puis connectez-vous à votre compte Twitch.<br />
+            Un Token Twitch resemble a ceci : <b>oauth:dsd46dv0hlfsdsd45vndh797</b>
+          </p>
+
+          <h5>Modifier les fichiers sonores</h5>
+          <p>
+            Vous avez juste à copier-coller vos fichiers dans le dossier <b>audio</b>.<br />
+            Attention, merci de bien respecter les noms des fichiers, <b>connect.mp3</b> pour la connexion et <b>disconnect.mp3</b> pour la deconnexion.
+          </p>
+        </article>      
+    </div>
+  </div>
+  
+</body>
+</html>

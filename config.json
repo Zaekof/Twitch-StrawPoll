@@ -1,0 +1,10 @@
+{"Configuration": {
+    "Info": "Volume min = 0.1 // volume max = 1",
+    "audio": {
+        "enable": true,
+        "volume": 0.1
+    },
+    "channel_twitch": "",
+    "identity_username": "",
+    "identity_password": ""
+}}
