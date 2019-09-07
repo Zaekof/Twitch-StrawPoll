@@ -42,12 +42,10 @@ client.on('chat', (channel, user, message, isSelf) => {
             let command_trim = fullCommand[2].trim()
 
             if (fullCommand[1] === 'poll') {
-                if (command_trim === 'stop') {
+                if (command_trim === 'stop')
                     poll.reset()
-                }
-                else if (command_trim === 'hide') {
+                else if (command_trim === 'hide')
                     poll.toggleOV()
-                }
                 else if (command_trim.substr(0, 3) === 'add') {
                     let option = command_trim.substr(3, command_trim.length)
                     option = option.trim()
@@ -64,12 +62,11 @@ client.on('chat', (channel, user, message, isSelf) => {
                         client.say(channel, 'imGlitch - Erreur dans la formulation du StrawPoll.')
                 }
             }
-            else if (fullCommand[1] === 'pollcmd') {
+            else if (fullCommand[1] === 'pollcmd')
                 client.say(channel, "imGlitch - Les commandes : !poll (nom du strawPoll) - !poll add (option) - !poll stop - !poll hide")
-            }
-            else if (fullCommand[1] === 'updatehtml') {
+            else if (fullCommand[1] === 'updatehtml')
                 poll.updateHTML()
-            }
         }
-    }
+    } else
+        return
 })
